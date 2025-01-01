@@ -27,7 +27,7 @@ function App() {
 
       <div className="max-w-[500px] min-h-[350px] p-12 rounded-2xl bg-[#F5F5F5] shadow-2xl box-border mx-auto">
         <Input handleAdd={handleAdd} />
-        <hr className="mt-2 border border-gray-400 rounded-2xl" />
+        <hr className="my-2 border border-gray-400 rounded-2xl" />
 
         <ListItems items={items} taskCompletion={taskCompletion} taskDeletion={taskDeletion} />
       </div>

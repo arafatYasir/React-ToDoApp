@@ -4,13 +4,18 @@ const Input = ({ handleAdd }) => {
     const inputBox = useRef();
 
     function handleSubmit() {
-        const newItem = {
-            text: inputBox.current.value,
-            id: Date.now(),
-            completed: false
-        };
-        inputBox.current.value = "";
-        handleAdd(newItem);
+        if(inputBox.current.value) {
+            const newItem = {
+                text: inputBox.current.value,
+                id: Date.now(),
+                completed: false
+            };
+            inputBox.current.value = "";
+            handleAdd(newItem);
+        }
+        else {
+            alert("Please don't left the box empty.");
+        }
     }
     return (
         <div className="flex gap-[5px]">
