@@ -5,6 +5,19 @@ import ListItems from "./components/ListItems";
 function App() {
   const [items, setItems] = useState([]);
 
+  // load items from localstorage
+  useEffect(() => {
+    const savedTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
+
+    if(savedTasks) {
+      setItems(savedTasks);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(items));
+  }, [items]);
+
   function handleAdd(newItem) {
     const exists = items.find(item => item.text === newItem.text);
     if (!exists) {
